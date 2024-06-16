@@ -1,0 +1,124 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'roboto', sans-serif;
+}
+
+.background-image{
+    width: auto;
+    height: calc(100vh - 100px);
+    display: flex;
+    background: url('../img/women_collection_3.png') no-repeat top center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-container{
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    align-items: center;
+    justify-content: flex-start;
+    height: 80vh;
+    width: 90%;
+    position: relative;
+}
+
+/*.background-image {*/
+/*    background-image: url('../img/women_collection_3.png');*/
+/*    background-size: cover;*/
+/*}*/
+
+.collection-short-des{
+    /*position: absolute;*/
+    /*bottom: 11%;*/
+    justify-content: center;
+    /*text-align: center;*/
+    /*color: #982525;*/
+    /*font-size: 20px;*/
+    text-transform: capitalize;
+    /*padding: 10px;*/
+    /*z-index: 1;*/
+    text-align: center;
+    /*position: center;*/
+    margin-top: 300px;
+    color: #383838;
+    /*text-shadow: 1px 1px 2px black;*/
+    /*font-family: 'Raleway', sans-serif;*/
+    letter-spacing: 0.2em;
+    /*text-transform: uppercase;*/
+    font-size: 20px;
+    font-weight: 600;
+    padding: 5px 10vw;
+}
+
+/*.collection-short-des::before {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    left: 50%;*/
+/*    bottom: 1px;*/
+/*    transform: translateX(-50%);*/
+/*    width: 365px;*/
+/*    height: 125px;*/
+/*    !*background-color: rgba(183, 252, 252, 0.7);*!*/
+/*    border-radius: 5px;*/
+/*    z-index: -1;*/
+/*}*/
+
+.collection-title{
+    margin: 20px 0 20px 0;
+    text-align: center;
+    color: #383838;
+    /*text-shadow: 1px 1px 2px black;*/
+    text-transform: capitalize;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.category-container{
+    /*width: 90%;*/
+    /*margin-left: 10px;*/
+    /*!*background-color: #4C4F3C;*!*/
+    /*overflow: auto;*/
+    /*white-space: nowrap;*/
+    /*padding: 0 10vw;*/
+    /*scroll-behavior: smooth;*/
+    /*display: grid;*/
+    /*grid-template-columns: repeat(4, 1fr);*/
+    /*height: auto;*/
+    /*grid-row-gap: 40px;*/
+    /*grid-column-gap: 10px;*/
+    width: 90%;
+    margin-left: 5px;
+    /*background-color: #4C4F3C;*/
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0 5vw;
+    scroll-behavior: smooth;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: auto;
+    grid-row-gap: 40px;
+    grid-column-gap: 10px;
+}
+
+@media screen and (max-width: 1300px) {
+    .product-search-container {
+        width: 95%;
+        margin-left: 5px;
+        /*background-color: #4C4F3C;*/
+        /*overflow: hidden;*/
+        /*white-space: nowrap;*/
+        padding: 0 5vw;
+        /*scroll-behavior: smooth;*/
+        /*display: grid;*/
+        grid-template-columns: repeat(4, 1fr);
+        /*height: auto;*/
+        grid-row-gap: 20px;
+        grid-column-gap: 1px;
+    }
+}

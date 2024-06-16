@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product - </title>
+
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/product.css">
+
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+
+</head>
+<body onload="loadData()">
+
+    <nav class="navbar"></nav>
+
+    <section class="product-details">
+        <div class="image-slider">
+            <div class="product-images">
+                <img src="" id="img1" class="active" alt="">
+                <img src="" id="img2" alt="">
+                <img src="" id="img3" alt="">
+                <img src="" id="img4" alt="">
+            </div>
+        </div>
+        <div class="details">
+            <h2 class="product-brand"></h2>
+            <p class="product-short-des"></p>
+            <span class="product-price"></span>
+            <span class="product-actual-price"></span>
+            <span class="product-discount"></span>
+
+            <p class="product-sub-heading">select size</p>
+
+            <input type="radio" name="size" value="0" hidden id="0-size">
+            <label for="0-size" class="size-radio-btn check" id="0">0</label>
+            <input type="radio" name="size" value="2" hidden id="2-size">
+            <label for="2-size" class="size-radio-btn" id="2">2</label>
+            <input type="radio" name="size" value="4" hidden id="4-size">
+            <label for="4-size" class="size-radio-btn" id="4">4</label>
+            <input type="radio" name="size" value="6" hidden id="6-size">
+            <label for="6-size" class="size-radio-btn" id="6">6</label>
+            <input type="radio" name="size" value="8" hidden id="8-size">
+            <label for="8-size" class="size-radio-btn" id="8">8</label>
+            <input type="radio" name="size" value="10" hidden id="10-size">
+            <label for="10-size" class="size-radio-btn" id="10">10</label>
+            <input type="radio" name="size" value="12" hidden id="12-size">
+            <label for="12-size" class="size-radio-btn" id="12">12</label>
+            <input type="radio" name="size" value="14" hidden id="14-size">
+            <label for="14-size" class="size-radio-btn" id="14">14</label>
+
+            <button class="btn cart-btn" id="addToCart">add to cart</button>
+            <button class="btn" id="viewCart">View cart & check out</button>
+
+        </div>
+    </section>
+
+    <section class="detail-des">
+        <h2 class="heading">description</h2>
+        <p class="des"></p>
+    </section>
+
+    <section class="product product-you-may-also-liked"></section>
+
+    <footer></footer>
+
+    <script src="../js/nav.js"></script>
+    <script src="../js/realDBConnect.js"></script>
+    <script src="../js/product.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/home.js"></script>
+
+
+
+</body>
+</html>

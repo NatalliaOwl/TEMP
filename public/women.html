@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NS Shop | Women</title>
+
+    <link rel="stylesheet" href="css/women.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/home.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.io/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon.io/site.webmanifest">
+
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+
+</head>
+<body onload=loadData()>
+
+    <nav class="navbar"></nav>
+
+    <div class="background-image">
+    <div class="content-container image-container">
+<!--        <img src="img/women_collection_3.png" class="women-collection-image" alt="">-->
+        <p class="collection-title">Women collection</p>
+        <p class="collection-short-des">where elegance and fashion unite, <br> allowing every woman <br>
+            to explore her unique style <br>  without bounds.</p>
+    </div>
+    </div>
+
+        <section class="product women-results" id="womenResults">
+        <section class="card-container"></section>
+        </section>
+
+        <section class="product product-you-may-also-liked"></section>
+        <section class="product product-shoes"></section>
+        <section class="product product-accessories"></section>
+
+    <footer></footer>
+    <script src="js/realDBConnect.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/footer.js"></script>
+
+</body>
+</html>
