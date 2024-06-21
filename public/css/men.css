@@ -9,7 +9,7 @@ body{
     width: auto;
     height: calc(100vh - 100px);
     display: flex;
-    background: url('../img/women_collection_3.png') no-repeat top center fixed;
+    background: url('../img/men-collection.png') no-repeat top center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -29,7 +29,7 @@ body{
 }
 
 /*.background-image {*/
-/*    background-image: url('../img/women_collection_3.png');*/
+/*    background-image: url('../img/men-collection.png');*/
 /*    background-size: cover;*/
 /*}*/
 
@@ -72,18 +72,6 @@ body{
 }
 
 .category-container{
-    /*width: 90%;*/
-    /*margin-left: 10px;*/
-    /*!*background-color: #4C4F3C;*!*/
-    /*overflow: auto;*/
-    /*white-space: nowrap;*/
-    /*padding: 0 10vw;*/
-    /*scroll-behavior: smooth;*/
-    /*display: grid;*/
-    /*grid-template-columns: repeat(4, 1fr);*/
-    /*height: auto;*/
-    /*grid-row-gap: 40px;*/
-    /*grid-column-gap: 10px;*/
     width: 90%;
     margin-left: 5px;
     /*background-color: #4C4F3C;*/

@@ -9,11 +9,19 @@
     <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/product.css">
 
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.io/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon.io/site.webmanifest">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@500&display=swap" rel="stylesheet">
+
     <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
 
 </head>
 <body onload="loadData()">
-
     <nav class="navbar"></nav>
 
     <section class="product-details">
@@ -51,28 +59,23 @@
             <input type="radio" name="size" value="14" hidden id="14-size">
             <label for="14-size" class="size-radio-btn" id="14">14</label>
 
-            <button class="btn cart-btn" id="addToCart">add to cart</button>
+            <button class="btn cart-btn" id="addToCart">Add to cart</button>
             <button class="btn" id="viewCart">View cart & check out</button>
-
         </div>
     </section>
 
     <section class="detail-des">
-        <h2 class="heading">description</h2>
+        <h2 class="heading">Description</h2>
         <p class="des"></p>
     </section>
 
     <section class="product product-you-may-also-liked"></section>
 
     <footer></footer>
-
     <script src="../js/nav.js"></script>
     <script src="../js/realDBConnect.js"></script>
     <script src="../js/product.js"></script>
     <script src="../js/footer.js"></script>
     <script src="../js/home.js"></script>
-
-
-
 </body>
 </html>

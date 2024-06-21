@@ -136,7 +136,7 @@
     font-size: 20px;
     cursor: pointer;
     margin: 90px 0 40px 0;
-    text-transform: capitalize;
+    text-transform: unset;
 }
 
 .cart-btn{
@@ -147,7 +147,7 @@
 
 .detail-des{
     padding: 0 10vw;
-    text-transform: capitalize;
+    text-transform: unset;
 }
 
 .heading{

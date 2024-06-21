@@ -4,7 +4,7 @@ body{
     min-height: auto;
     padding: 0 5vw;
     position: relative;
-    font-family: 'roboto', sans-serif;
+    font-family: 'Krub', sans-serif;
 }
 
 .logo{
@@ -23,7 +23,7 @@ body{
 }
 
 .heading{
-    text-transform: capitalize;
+    text-transform: unset;
     font-weight: 700;
     font-size: 18px;
 }
@@ -41,7 +41,7 @@ body{
     color: #fff;
     padding: 10px 30px;
     border-radius: 5px;
-    text-transform: capitalize;
+    text-transform: unset;
     font-size: 14px;
     cursor: pointer;
 }
@@ -81,7 +81,7 @@ body{
 }
 
 .add-product-title{
-    text-transform: capitalize;
+    text-transform: unset;
     color: #383838;
 }
 
