@@ -10,12 +10,9 @@ const path = require('path');
 
 // firebase admin setup
 let serviceAccount = require("./public/credentials/ns-ecommercewebapp-firebase-adminsdk-8b1z4-522f20e93b.json");
-// const {initializeApp} = require("firebase/app");
-// const {firebaseConfig} = require("./config/firebaseConfig");
 
 admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    // firebaseConfig,
+    credential: admin.credential.cert(serviceAccount)
 });
 
 let db = admin.firestore();
@@ -154,10 +151,6 @@ app.get('/cart/:id',  (req, res) => {
     res.sendFile(path.join(staticPath, "cart.html"));
 })
 
-// app.get("/search", (req, res) => {
-//     res.sendFile(path.join(staticPath, "search.html"));
-// })
-
 // код Ирины для search
 app.get('/search/:key', (req, res) => {
     res.sendFile(path.join(staticPath, 'search.html'));
@@ -225,12 +218,15 @@ app.get("/men", (req, res) => {
     res.sendFile(path.join(staticPath, "men.html"));
 })
 
-app.get("/kids", (req, res) => {
-    res.sendFile(path.join(staticPath, "kids.html"));
-})
-
 app.get("/accessories", (req, res) => {
     res.sendFile(path.join(staticPath, "accessories.html"));
+})
+
+app.get("/terms", (req, res) => {
+    res.sendFile(path.join(staticPath, "terms.html"));
+})
+app.get("/privacy", (req, res) => {
+    res.sendFile(path.join(staticPath, "privacy.html"));
 })
 
 // 404 route

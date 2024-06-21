@@ -12,7 +12,7 @@ body {
 
 .heading{
     font-size: 20px;
-    text-transform: capitalize;
+    text-transform: unset;
     font-weight: 400;
     margin-bottom: 40px;
     padding: 0 10vw;
@@ -20,6 +20,7 @@ body {
 
 .heading span{
     font-weight: 700;
+    text-transform: capitalize;
 }
 
 /*.product-container{*/

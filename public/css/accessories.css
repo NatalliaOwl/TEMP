@@ -5,22 +5,9 @@ body{
     font-family: 'roboto', sans-serif;
 }
 
-.background-image{
-    width: auto;
-    height: calc(100vh - 100px);
-    display: flex;
-    background: url('../img/women_collection_3.png') no-repeat top center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    justify-content: center;
-    align-items: center;
-}
-
 .content-container{
-    /*display: flex;*/
-    /*flex-direction: column;*/
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     height: 80vh;
@@ -28,10 +15,18 @@ body{
     position: relative;
 }
 
-/*.background-image {*/
-/*    background-image: url('../img/women_collection_3.png');*/
-/*    background-size: cover;*/
-/*}*/
+.background-image{
+    width: auto;
+    height: calc(100vh - 100px);
+    display: flex;
+    background: url('../img/accessories-collection.png') no-repeat top center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+}
 
 .collection-short-des{
     justify-content: center;
@@ -55,7 +50,7 @@ body{
 /*    transform: translateX(-50%);*/
 /*    width: 365px;*/
 /*    height: 125px;*/
-/*    !*background-color: rgba(183, 252, 252, 0.7);*!*/
+/*    background-color: rgba(183, 252, 252, 0.7);*/
 /*    border-radius: 5px;*/
 /*    z-index: -1;*/
 /*}*/
@@ -72,18 +67,6 @@ body{
 }
 
 .category-container{
-    /*width: 90%;*/
-    /*margin-left: 10px;*/
-    /*!*background-color: #4C4F3C;*!*/
-    /*overflow: auto;*/
-    /*white-space: nowrap;*/
-    /*padding: 0 10vw;*/
-    /*scroll-behavior: smooth;*/
-    /*display: grid;*/
-    /*grid-template-columns: repeat(4, 1fr);*/
-    /*height: auto;*/
-    /*grid-row-gap: 40px;*/
-    /*grid-column-gap: 10px;*/
     width: 90%;
     margin-left: 5px;
     /*background-color: #4C4F3C;*/

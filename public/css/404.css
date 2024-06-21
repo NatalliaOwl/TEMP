@@ -1,12 +1,25 @@
 .four-0-four-image{
     display: block;
     margin: 60px auto;
+    height: 250px;
+}
+
+.content-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    font-family: 'Krub', sans-serif;
 }
 
 .four-0-four-msg{
     text-align: center;
-    text-transform: capitalize;
+    text-transform: uppercase;
     color: #383838;
+    font-size: 20px;
+    letter-spacing: 1px;
+    word-spacing: 2px;
 }
 
 .four-0-four-msg a{
