@@ -106,9 +106,10 @@ function getProductById(data, id) {
             const actualPrice = document.querySelector('.product-actual-price');
             const discount = document.querySelector('.product-discount');
 
-            sellPrice.innerHTML = `$${data.sellPrice}`;
-            actualPrice.innerHTML = `$${data.actualPrice}`;
-            discount.innerHTML = `( ${data.discount}% off )`;
+            sellPrice.innerHTML = `$${(Number(data.actualPrice) - (Number(data.actualPrice) * Number(data.discount) / 100)).toFixed(2)}`;
+            actualPrice.innerHTML = `$${Number(data.actualPrice).toFixed(2)}`;
+            discount.innerHTML = `(${Number(data.discount).toFixed(0)}% off)`;
+
 
             setData(data);
 
@@ -140,23 +141,23 @@ function getProductsInActiveOrder() {
 
 }
 
-const createSmallCard = (product) => {
-    return `
-    <div class="sm-product">
-        <img src="../img/product%20image%201.png" class="sm-product-img" alt="">
-        <div class="sm-text">
-            <p class="sm-product-name">${product.name}</p>
-            <p class="sm-des">this is a short line about</p>
-        </div>
-        <div class="item-counter">
-            <button class="counter-btn decrement">-</button>
-            <p class="item-count">1</p>
-            <button class="counter-btn increment">+</button>
-        <p class="sm-price">$20</p>
-        <button class="sm-delete-btn"><img src="../img/close.png" alt=""></button>
-    </div>
-    `;
-}
+// const createSmallCard = (product) => {
+//     return `
+//     <div class="sm-product">
+//         <img src="../img/product%20image%201.png" class="sm-product-img" alt="">
+//         <div class="sm-text">
+//             <p class="sm-product-name">${product.name}</p>
+//             <p class="sm-des">this is a short line about</p>
+//         </div>
+//         <div class="item-counter">
+//             <button class="counter-btn decrement">-</button>
+//             <p class="item-count">1</p>
+//             <button class="counter-btn increment">+</button>
+//         <p class="sm-price">$20</p>
+//         <button class="sm-delete-btn"><img src="../img/close.png" alt=""></button>
+//     </div>
+//     `;
+// }
 
 function getProductByIdOnCart() {
 
@@ -289,8 +290,9 @@ const createProductCard = (result) => {
              <div class="product-info">
                 <!-- <p class="product-name">${result.id}</p> -->
                  <p class="product-name">${result.name}</p>
-                 <span class="actual-price">$${result.actualPrice}</span>
-                 <span class="price">$${result.sellPrice}</span>
+                 <span class="actual-price">$${Number(result.actualPrice).toFixed(2)}</span>
+                 <span class="price">$${Number(result.sellPrice).toFixed(2)}</span>
+
              </div>
          </div>
     `;
