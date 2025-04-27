@@ -12,6 +12,15 @@ productImages.forEach((item, i) => {
     })
 })
 
+// from Wera
+function checkFirstAvailableSize() {
+    // Find the first visible size button and check it
+    const firstAvailableSizeBtn = Array.from(sizeBtns).find(btn => btn.style.display !== 'none');
+    if (firstAvailableSizeBtn) {
+        firstAvailableSizeBtn.click();
+    }
+}
+
 // toggle size buttons
 const sizeBtns = document.querySelectorAll('.size-radio-btn');
 let checkedBtn = 0;
@@ -23,8 +32,9 @@ sizeBtns.forEach((item, i) => {
         item.classList.add('check');
         checkedBtn = i;
         size = item.innerHTML;
-    })
-})
+    });
+});
+
 
 //Show product's images and size buttons on page
 const setData = (data) => {
@@ -46,9 +56,9 @@ const setData = (data) => {
         if (!data.sizes.includes(item.innerHTML)) {
             item.style.display = 'none';
         }
-    })
+    });
+    checkFirstAvailableSize();
 }
-
 
 let productId = null;
 
@@ -165,7 +175,7 @@ function countProductAmountInOrder(productId, checkedSizeId) {
 
     console.log("productsInActiveOrder = ", productsInActiveOrder, "  ", productsInActiveOrder.length);
 
-    let productAmount;
+    let productAmount = 0;
     if(productsInActiveOrder === null) {
         productsInActiveOrder = "";
         console.log("productsInActiveOrder was NULL and now is empty string = ", productsInActiveOrder);
@@ -182,91 +192,87 @@ function countProductAmountInOrder(productId, checkedSizeId) {
     return productAmount;
 }
 
-function addProductToOrder(orderId, checkedSizeId, productId) {
-    let amount;
+// // Function to count the product amount in the order
+// function countProductAmountInOrder(productId, checkedSizeId) {
+//     const currentProductIdAndSize = productId + '-' + checkedSizeId;
+//     console.log("currentProductIdAndSize = ", currentProductIdAndSize);
+//
+//     console.log("productsInActiveOrder = ", productsInActiveOrder, "  ", productsInActiveOrder.length);
+//
+//     let productAmount = 0;
+//     if(productsInActiveOrder === null || !productsInActiveOrder) {
+//         productsInActiveOrder = "";
+//         console.log("productsInActiveOrder was NULL and now is empty string = ", productsInActiveOrder);
+//     } else if (productsInActiveOrder.length > 0) {
+//         const productRegex = new RegExp(`\\b${currentProductIdAndSize}\\b`);
+//         const match = productsInActiveOrder.match(productRegex);
+//         if (match) {
+//             productAmount = parseInt(match[1], 10);
+//         } else {
+//             productAmount = 0;
+//         }
+//     } else {
+//         productAmount = 0;
+//     }
+//
+//     console.log("productAmount, который будет добавлен в ордер = ", productAmount);
+//
+//     return productAmount;
+// }
+
+// Function to add product to order
+async function addProductToOrder(orderId, checkedSizeId, productId) {
+    const productRowName = productId + '-' + checkedSizeId;
+    let amount = 0;
 
     const productAmount = countProductAmountInOrder(productId, checkedSizeId);
 
-    let productRowName = productId + '-' + checkedSizeId;
-
-    if(productAmount === 0) {
+    if (productAmount === 0) {
         amount = 1;
 
-        //Add new product in order
-        db
-            .ref('orders/' + orderId + '/products/' + productRowName)
-            .set({
-                id: productRowName,
-                productId: productId,
-                checkedSizeId: checkedSizeId,
-                amount: amount
-            });
+        // Add new product to order
+        await db.ref('orders/' + orderId + '/products/' + productRowName).set({
+            id: productRowName,
+            productId: productId,
+            checkedSizeId: checkedSizeId,
+            amount: amount
+        });
 
-        productsInActiveOrder = productsInActiveOrder + " " + productRowName;
-        db
-            .ref('productsIds/')
-            .set({
-                ids: productsInActiveOrder
-            });
+        productsInActiveOrder += ` ${productRowName}`;
+        await db.ref('productsIds/').set({
+            ids: productsInActiveOrder.trim()
+        });
 
-    } else if(productAmount === 1) {
+    } else {
+        // Retrieve the current amount of the product in the order
+        const snapshot = await db.ref('orders/' + orderId + '/products/' + productRowName).once('value');
+        if (snapshot.exists()) {
+            amount = snapshot.val().amount;
+        }
 
-        orders.on("value", function (snapshot) {
-            if (!snapshot.exists()) {
-                console.log("No orders found");
-            } else {
-                snapshot.forEach(function (element) {
-                    let dataOrders = element.val();
-                    const products = dataOrders.products;
+        amount += 1;
 
-                    for (let item in products) {
-                        amount = products[productRowName].amount;
-                    }
-                })
-            }
+        // Update the amount of the product in the order
+        await db.ref('orders/' + orderId + '/products/' + productRowName).update({
+            id: productRowName,
+            productId: productId,
+            checkedSizeId: checkedSizeId,
+            amount: amount
+        });
 
-        })
+        // Debugging logs
+        const newSnapshot = await db.ref('orders/' + orderId).once('value');
+        if (newSnapshot.exists()) {
+            console.log("newDataOrders = ", newSnapshot.val());
+        }
 
-        amount = amount + 1;
-
-        //Update amount
-        db
-            .ref('orders/' + orderId + '/products/' + productRowName)
-            .set({
-                id: productRowName,
-                productId: productId,
-                checkedSizeId: checkedSizeId,
-                amount: amount
-            });
-
-        orders.on("value", function (snapshot) {
-            if (!snapshot.exists()) {
-                console.log("No orders found");
-            } else {
-                snapshot.forEach(function (element) {
-                    let newDataOrders = element.val();
-                    const products = newDataOrders.products;
-
-                    console.log("newDataOrders = ", newDataOrders);
-
-                })
-            }
-        })
-
-        productsIds.on("value", function (snapshot) {
-            if (!snapshot.exists()) {
-                console.log("No productsInOrder found");
-            } else {
-                snapshot.forEach(function (element) {
-                    let newProductsIds = element.val();
-
-                    console.log("newProductsIds = ", newProductsIds);
-
-                });
-            }
-        })
+        const productsIdsSnapshot = await db.ref('productsIds/').once('value');
+        if (productsIdsSnapshot.exists()) {
+            console.log("newProductsIds = ", productsIdsSnapshot.val());
+        }
     }
 }
+
 
 const addToCartBtn = document.querySelector("#addToCart");
 const viewCartBtn = document.querySelector("#viewCart");

@@ -3,7 +3,7 @@ const createFooter = () => {
 
     footer.innerHTML = `
     <div class="footer-content">
-        <div class="footer-about" id="footer">
+        <div class="footer-about" id="footer-about">
             <div class = "logo-slogan">
                 <img src="../img/light-logo.png" class="logo" alt="">
                 <p class="slogan">Where Education Meets Innovation</p>
