@@ -9,11 +9,13 @@ const path = require('path');
 // require('dotenv').config();
 
 // firebase admin setup
-let serviceAccount = require("./public/credentials/ns-ecommercewebapp-firebase-adminsdk-8b1z4-522f20e93b.json");
-
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
-});
+// let serviceAccount = require("./public/credentials/ns-ecommercewebapp-firebase-adminsdk-8b1z4-522f20e93b.json");
+//
+admin.initializeApp(
+    // {
+    // credential: admin.credential.cert(serviceAccount)
+    // }
+);
 
 let db = admin.firestore();
 
